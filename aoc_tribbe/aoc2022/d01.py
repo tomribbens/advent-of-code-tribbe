@@ -3,7 +3,7 @@ from collections import defaultdict
 from aocd.models import Puzzle
 
 
-def solve(data):
+def solve(data: str) -> tuple[str, str]:
     lines = data.splitlines()
     elves = defaultdict(int)
     index = 0
