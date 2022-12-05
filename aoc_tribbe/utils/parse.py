@@ -6,7 +6,7 @@ def mapt(fn, *args) -> tuple:
     return tuple(map(fn, *args))
 
 
-def ints(line: str, signed: bool = True) -> tuple[int]:
+def ints(line: str, signed: bool = True) -> tuple[int, ...]:
     """takes a string, and returns all numbers from it as ints in a tuple"""
     if signed:
         return mapt(int, re.findall(r"-?[0-9]+", line))
