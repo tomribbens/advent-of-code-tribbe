@@ -16,8 +16,7 @@ def solve(data: str) -> tuple[str, str]:
                 towers_b = deepcopy(towers_a)
                 continue
 
-            layer = [line[i] for i in range(1, len(line), 4)]
-            for i, contents in enumerate(layer):
+            for i, contents in enumerate(line[1::4]):
                 if contents.isalpha():
                     towers_a[i+1].insert(0, contents)
             continue
