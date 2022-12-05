@@ -16,9 +16,9 @@ def solve(data: str) -> tuple[str, str]:
                 towers_b = deepcopy(towers_a)
                 continue
 
-            for i, contents in enumerate(line[1::4]):
+            for i, contents in enumerate(line[1::4], start=1):
                 if contents.isalpha():
-                    towers_a[i+1].insert(0, contents)
+                    towers_a[i].insert(0, contents)
             continue
 
         if line == "":
@@ -34,7 +34,7 @@ def solve(data: str) -> tuple[str, str]:
 
     message_a = []
     message_b = []
-    for tower in range(1, len(towers_a)+1):
+    for tower in range(1, len(towers_a) + 1):
         message_a.append(towers_a[tower][-1])
         message_b.append(towers_b[tower][-1])
 
