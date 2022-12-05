@@ -16,7 +16,7 @@ def solve(data: str) -> tuple[str, str]:
                 towers_b = deepcopy(towers_a)
                 continue
 
-            layer = [line[i + 1 : i + 2] for i in range(0, len(line), 4)]
+            layer = [line[i] for i in range(1, len(line), 4)]
             for i, contents in enumerate(layer):
                 if contents.isalpha():
                     towers_a[i+1].insert(0, contents)
@@ -26,8 +26,7 @@ def solve(data: str) -> tuple[str, str]:
             continue
 
         amount, start, finish = ints(line)
-        for crate in towers_b[start][-amount:]:
-            towers_b[finish].append(crate)
+        towers_b[finish].extend(towers_b[start][-amount:])
         del towers_b[start][-amount:]
 
         while amount:
